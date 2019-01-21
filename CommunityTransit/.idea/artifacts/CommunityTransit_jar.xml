@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CommunityTransit:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CommunityTransit_jar</output-path>
+    <root id="archive" name="CommunityTransit.jar">
+      <element id="module-output" name="CommunityTransit" />
+    </root>
+  </artifact>
+</component>
