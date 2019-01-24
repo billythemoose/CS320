@@ -1,23 +1,23 @@
-import javax.sound.midi.SysexMessage;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.*;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class BusRouteManager {
+    // Line break characters
     public static final String breakline = "+++++++++++++++++++++++++++++++++++";
-    public static String URLText = "";
+
+    // Main BusRouteQuery object
     public static BusRouteQuery queryManager;
 
+    // Application entry point
     public static void main(String[] args) {
         queryManager = new BusRouteQuery();
+
         while(BusRoute()) {}
+
         System.out.println("Exiting...");
     }
 
+    // Main method handling for the application
     public static boolean BusRoute() {
         boolean keepRunning = false;
 
@@ -50,6 +50,7 @@ public class BusRouteManager {
         return keepRunning;
     }
 
+    // Returns a user response to a given question
     public static String AskForInput(String query) {
         System.out.print(query);
         Scanner scan = new Scanner(System.in);
@@ -57,6 +58,8 @@ public class BusRouteManager {
         return input;
     }
 
+    // Searches through available route information to find matching route number
+    // If found, a route stop information is listed
     public static void DisplayRoutePath(String routeNumber, ArrayList<String> possibleRoutes) {
         boolean foundRoute = false;
         for (String route : possibleRoutes) {
@@ -89,6 +92,7 @@ public class BusRouteManager {
         }
     }
 
+    // Prints city and corresponding route data
     public static void DisplayRouteResults(String city, ArrayList<String> routeNumbers) {
         System.out.println(String.format("Destination: %s", city));
         for (String number : routeNumbers) {
